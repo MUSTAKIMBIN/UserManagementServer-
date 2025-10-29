@@ -25,6 +25,10 @@ app.get("/users", (req, res) => {
 // post user to server
 app.post("/users", (req, res) => {
   console.log(`post mathod called`, req.body);
+  const newUser = req.body;
+  newUser.id = user.length + 1;
+  user.push(newUser);
+  res.send(newUser);
 });
 
 app.listen(port, () => {
